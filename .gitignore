@@ -3,4 +3,6 @@ samples/
 **/**/bin/
 **/obj/
 **/**/obj/
+**/**/.config/
+**/**/.vscode/
 .vs/
