@@ -1,3 +1,5 @@
 <Solution>
-  <Folder Name="/Chapter-3/" />
+  <Folder Name="/Chapter-3/">
+    <Project Path="Chapter-3/ConsoleExercise01/ConsoleExercise01.csproj" Id="e8a969b2-b934-46d2-903d-90bdf24cd6fa" />
+  </Folder>
 </Solution>
