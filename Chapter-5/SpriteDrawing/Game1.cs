@@ -8,6 +8,7 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private Texture2D _balloon;
 
     public Game1()
     {
@@ -28,6 +29,7 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         // TODO: use this.Content to load your game content here
+        _balloon = Content.Load<Texture2D>("spr_lives");
     }
 
     protected override void Update(GameTime gameTime)
@@ -45,6 +47,9 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
         // TODO: Add your drawing code here
+        _spriteBatch.Begin();
+        _spriteBatch.Draw(_balloon, Vector2.Zero, Color.White);
+        _spriteBatch.End();
 
         base.Draw(gameTime);
     }
