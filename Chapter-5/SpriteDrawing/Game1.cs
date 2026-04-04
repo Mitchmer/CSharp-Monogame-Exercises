@@ -14,6 +14,8 @@ public class Game1 : Game
     // Balloon
     private Texture2D _balloon;
     Vector2 _balloonPosition;
+    Vector2 _balloonOrigin;
+
     
     private Texture2D _background;
     private Song _song;
@@ -38,6 +40,13 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
         _balloon = Content.Load<Texture2D>("spr_lives");
+
+        // Different ways of obtaining the center of the balloon sprite:
+
+        //_balloonCenter = _balloon.Bounds.Center;
+        _balloonOrigin = new Vector2(_balloon.Width / 2, _balloon.Height);
+
+
         _song = Content.Load<Song>("snd_music");
         _background = Content.Load<Texture2D>("spr_background");
 
@@ -51,9 +60,10 @@ public class Game1 : Game
             Exit();
 
         // TODO: Add your update logic here
+
         MouseState currentMouseState = Mouse.GetState();
         _balloonPosition = new Vector2(currentMouseState.X, currentMouseState.Y);
-        IsMouseVisible = false;
+
         base.Update(gameTime);
     }
 
@@ -63,7 +73,7 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         _spriteBatch.Begin();
         _spriteBatch.Draw(_background, Vector2.Zero, Color.White);
-        _spriteBatch.Draw(_balloon, _balloonPosition, Color.White);
+        _spriteBatch.Draw(_balloon, _balloonPosition - _balloonOrigin, Color.White);
         _spriteBatch.End();
 
         base.Draw(gameTime);
